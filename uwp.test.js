@@ -1,5 +1,27 @@
-const { starPortParser, uwpSanitizer} = require('./uwp.js')
+const { starPortParser, uwpSanitizer, gravityParsing } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('gravityParsing no hex', () => {
+  const input = '1K234'
+  const actual = gravityParsing(input)
+  const expected = '0 G'
+  expect(actual).toEqual(expected)
+})
+
+test('gravityParsing 1', () => {
+  const input = '11234'
+  const actual = gravityParsing(input)
+  const expected = '.05 G'
+  expect(actual).toEqual(expected)
+})
+
+test('gravityParsing 2', () => {
+  const input = '12234'
+  const actual = gravityParsing(input)
+  const expected = '.15 G'
+  expect(actual).toEqual(expected)
+})
+
 
 test('starPortParser C', () => {
     const input = 'abcdef'
