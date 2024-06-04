@@ -2,9 +2,9 @@
   "name": "tradeautomater",
   "version": "1.0.0",
   "description": "automates MT2E trade checks.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "marbh56",
   "license": "ISC",
