@@ -3,8 +3,16 @@ const { starPortParser,
   gravityParsing, 
   atmosphereParsing,
   diceRoller,
+  hydroParsing
 } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('hydroParsing 8', () => {
+  const input = '11181'
+  const actual = hydroParsing(input)
+  const expected = '76-85%'
+  expect(actual).toEqual(expected)
+})
 
 test('always returns a value within the expected range', () => {
   const numDice = 5;
@@ -37,7 +45,7 @@ test('gravityParsing 2', () => {
 })
 
 
-test('starPortParser C', () => {
+test('uwpSanitizer', () => {
     const input = 'abcdef'
     const actual = uwpSanitizer(input)
     const expected = 'ABCDEF'

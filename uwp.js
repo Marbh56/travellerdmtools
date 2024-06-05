@@ -11,6 +11,33 @@ function diceRoller(numDice){
     return d
 }
 
+function hydroParsing(uwp){
+    const hydroHex = uwp[3]
+    if (hydroHex === '1'){
+        return '6-15%'
+    } else if (hydroHex === '2'){
+        return '16-25%'
+    } else if (hydroHex === '3'){
+        return '26-35%'
+    } else if (hydroHex === '4'){
+        return '36-45%'
+    } else if (hydroHex === '5'){
+        return '46-55%'
+    } else if (hydroHex === '6'){
+        return '56-65%'
+    } else if (hydroHex === '7'){
+        return '66-75%'
+    } else if (hydroHex === '8'){
+        return '76-85%'
+    } else if (hydroHex === '9'){
+        return '86-95%'
+    } else if (hydroHex === 'A'){
+        return '95-100%'
+    } else {
+        return '0-5%'
+    }
+}
+
 function atmosphereParsing(uwp){
     const atmosphereHex = uwp[2]
     if (atmosphereHex === '1'){
@@ -100,4 +127,5 @@ module.exports = {
     gravityParsing,
     atmosphereParsing,
     diceRoller,
+    hydroParsing,
 }
