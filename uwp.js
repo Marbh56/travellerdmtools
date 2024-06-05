@@ -21,6 +21,16 @@ function hexifier(char) {
     }
 }
 
+function techParsing(uwp){
+    const techHex = uwp[7]
+    return String(hexifier(techHex))
+}
+
+function lawParsing(uwp){
+    const lawHex = uwp[6]
+    return lawHex
+}
+
 function governmentParsing(uwp) {
     const govHex = uwp[5]
     if (govHex === '1'){
@@ -185,4 +195,6 @@ module.exports = {
     hexifier,
     popParsing,
     governmentParsing,
+    lawParsing,
+    techParsing,
 }

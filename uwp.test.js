@@ -7,8 +7,24 @@ const { starPortParser,
   hexifier,
   popParsing,
   governmentParsing,
+  lawParsing,
+  techParsing,
 } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('techParsing 8', () => {
+  const input = '11111118'
+  const actual = techParsing(input)
+  const expected = '8'
+  expect(actual).toEqual(expected)
+})
+
+test('lawParsing 8', () => {
+  const input = '11111181'
+  const actual = lawParsing(input)
+  const expected = '8'
+  expect(actual).toEqual(expected)
+})
 
 test('governmentParsing 8', () => {
   const input = '11111811'
