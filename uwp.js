@@ -28,8 +28,55 @@ function techParsing(uwp){
 
 function lawParsing(uwp){
     const lawHex = uwp[6]
-    return lawHex
+    const lawString =  String(hexifier(lawHex))
 }
+
+function bannedArmor(uwp) {
+    const bannedArmorList = [
+        'None', 'Battle dress', 'Combat armor', 
+        'Flak', 'Cloth', 'Mesh', '', '', 
+        'All visible armor', 'All armor'
+    ];
+
+    const lawLevel = parseInt(lawParsing(uwp), 10);
+    let bannedArm = '';
+
+    if (lawLevel === 8 || lawLevel === 9) {
+        return bannedArmorList[lawLevel];
+    } else {
+        for (let i = lawLevel; i >= 0; i--) {
+            bannedArm += bannedArmorList[i];
+            if (i > 0) {
+                bannedArm += ', ';
+            }
+        }
+        return bannedArm + '.';
+    }
+}
+
+function bannedWeapons(uwp){
+    const bannedWeaponList = [
+        'None', '', 'Portable energy, laser', 'Military',
+        'Light assault, SMG', 'Personal concearlable','All firearms except shotgun and stunners (carrying discouraged)',
+        'Shotguns', 'All bladed weapons, stunners', 'All weapons'
+    ];
+
+    const lawLevel = parseInt(lawParsing(uwp), 10);
+    let bannedWep = '';
+
+    if (lawLevel === 8 || lawLevel === 9) {
+        return bannedWeaponList[lawLevel];
+    } else {
+        for (let i = lawLevel; i >= 0; i--) {
+            bannedWep += bannedWeaponList[i];
+            if (i > 0) {
+                bannedWep += ', ';
+            }
+        }
+        return bannedWep + '.';
+    }    
+}
+
 
 function governmentParsing(uwp) {
     const govHex = uwp[5]
