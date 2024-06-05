@@ -3,9 +3,24 @@ const { starPortParser,
   gravityParsing, 
   atmosphereParsing,
   diceRoller,
-  hydroParsing
+  hydroParsing,
+  hexifier,
 } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('hexifier Hex', () => {
+  const input = 'F'
+  const actual = hexifier(input)
+  const expected = 15
+  expect(actual).toEqual(expected)
+})
+
+test('hexifier Int', () => {
+  const input = '4'
+  const actual = hexifier(input)
+  const expected = 4
+  expect(actual).toEqual(expected)
+})
 
 test('hydroParsing 8', () => {
   const input = '11181'
@@ -17,7 +32,6 @@ test('hydroParsing 8', () => {
 test('always returns a value within the expected range', () => {
   const numDice = 5;
   const result = diceRoller(numDice);
-  console.log(result)
   // The minimum value is 5 (1*5) and the maximum value is 30 (6*5)
   expect(result).toBeGreaterThanOrEqual(5);
   expect(result).toBeLessThanOrEqual(30);

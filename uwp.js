@@ -11,6 +11,16 @@ function diceRoller(numDice){
     return d
 }
 
+function hexifier(char) {
+    if (char >= '0' && char <= '9') {
+        return parseInt(char, 10); 
+    } else if (char >= 'A' && char <= 'F') {
+        return char.charCodeAt(0) - 'A'.charCodeAt(0) + 10;
+    } else {
+        throw new Error('Invalid hexadecimal character');
+    }
+}
+
 function hydroParsing(uwp){
     const hydroHex = uwp[3]
     if (hydroHex === '1'){
@@ -128,4 +138,5 @@ module.exports = {
     atmosphereParsing,
     diceRoller,
     hydroParsing,
+    hexifier,
 }
