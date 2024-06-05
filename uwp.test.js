@@ -6,8 +6,16 @@ const { starPortParser,
   hydroParsing,
   hexifier,
   popParsing,
+  governmentParsing,
 } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('governmentParsing 8', () => {
+  const input = '11111811'
+  const actual = governmentParsing(input)
+  const expected = 'Civil Service Bureaucracy'
+  expect(actual).toEqual(expected)
+})
 
 test('popParsing Hex', () => {
   const input = '1111F111'

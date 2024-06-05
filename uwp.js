@@ -21,6 +21,44 @@ function hexifier(char) {
     }
 }
 
+function governmentParsing(uwp) {
+    const govHex = uwp[5]
+    if (govHex === '1'){
+        return 'Corporation'
+    } else if (govHex === '2'){
+        return 'Participating Democracy'
+    } else if (govHex === '3'){
+        return 'Self-perpetuating Oligarchy'
+    } else if (govHex === '4'){
+        return 'Reprsentative Democracy'
+    } else if (govHex === '5'){
+        return 'Feudal Technocracy'
+    } else if (govHex === '6'){
+        return 'Captive Government'
+    } else if (govHex === '7'){
+        return 'Balkanization'
+    } else if (govHex === '8'){
+        return 'Civil Service Bureaucracy'
+    } else if (govHex === '9'){
+        return 'Impersonal Bureaucracy'
+    } else if (govHex === 'A'){
+        return 'Charismatic Dictator'
+    } else if (govHex === 'B'){
+        return 'Non-Charismatic Dictator'
+    } else if (govHex === 'C'){
+        return 'Charismatic Dictator'
+    } else if (govHex === 'D'){
+        return 'Religious Dictatorship'
+    } else if (govHex === 'E'){
+        return 'Religious Autocracy'
+    } else if (govHex === 'F'){
+        return 'Totalitarian Oligarchy'
+    } else {
+        return 'None'
+    }
+        
+}
+
 function popParsing(uwp){
     const popHex = hexifier(uwp[4])
     const result = Math.pow(10, popHex)
@@ -145,5 +183,6 @@ module.exports = {
     diceRoller,
     hydroParsing,
     hexifier,
-    popParsing
+    popParsing,
+    governmentParsing,
 }
