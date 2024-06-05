@@ -1,5 +1,19 @@
-const { starPortParser, uwpSanitizer, gravityParsing, atmosphereParsing, } = require('./uwp.js')
+const { starPortParser,
+  uwpSanitizer, 
+  gravityParsing, 
+  atmosphereParsing,
+  diceRoller,
+} = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('always returns a value within the expected range', () => {
+  const numDice = 5;
+  const result = diceRoller(numDice);
+  console.log(result)
+  // The minimum value is 5 (1*5) and the maximum value is 30 (6*5)
+  expect(result).toBeGreaterThanOrEqual(5);
+  expect(result).toBeLessThanOrEqual(30);
+});
 
 test('atmosphereParsing 8', () => {
   const input = '11811'
