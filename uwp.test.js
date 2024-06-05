@@ -5,8 +5,23 @@ const { starPortParser,
   diceRoller,
   hydroParsing,
   hexifier,
+  popParsing,
 } = require('./uwp.js')
 const {test, expect } = require('@jest/globals')
+
+test('popParsing Hex', () => {
+  const input = '1111F111'
+  const actual = popParsing(input)
+  const expected = "Pop: 1000000000000000"
+  expect(actual).toEqual(expected)
+})
+
+test('popParsing non Hex', () => {
+  const input = '11118111'
+  const actual = popParsing(input)
+  const expected = "Pop: 100000000"
+  expect(actual).toEqual(expected)
+})
 
 test('hexifier Hex', () => {
   const input = 'F'

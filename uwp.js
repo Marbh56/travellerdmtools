@@ -21,6 +21,12 @@ function hexifier(char) {
     }
 }
 
+function popParsing(uwp){
+    const popHex = hexifier(uwp[4])
+    const result = Math.pow(10, popHex)
+    return `Pop: ${result}`
+}
+
 function hydroParsing(uwp){
     const hydroHex = uwp[3]
     if (hydroHex === '1'){
@@ -139,4 +145,5 @@ module.exports = {
     diceRoller,
     hydroParsing,
     hexifier,
+    popParsing
 }
