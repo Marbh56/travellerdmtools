@@ -3,9 +3,47 @@ function uwpSanitizer(uwp){
     return sanitizedUwp
 }
 
+function atmosphereParsing(uwp){
+    const atmosphereHex = uwp[2]
+    if (atmosphereHex === '1'){
+        return 'Atmosphere: Trace Pressure: .05 Protection: Vacc Suit'
+    } else if (atmosphereHex === '2') {
+        return 'Atmosphere: Very Thin and Tainted Pressure: .2 Protection: Respirator, filter'
+    } else if (atmosphereHex === '3') {
+        return 'Atmosphere: Very Thin Pressure: .2 Pressure: .2 Protection: Respirator'
+    } else if (atmosphereHex === '4') {
+        return 'Atmosphere: Thin and Tainted Pressure: .6 Protection: Filter'
+    } else if (atmosphereHex === '5') {
+        return 'Atmosphere: Thin Pressure: .6 Protection: ---'
+    } else if (atmosphereHex === '6'){
+        return 'Atmosphere: Standard Pressure: 1.0 Protection: ---'
+    } else if (atmosphereHex === '7'){
+        return 'Atmosphere: Standard and Tainted Pressure: 1.0 Protection: Filter'
+    } else if (atmosphereHex === '8'){
+        return 'Atmosphere: Dense Pressure: 2.0 Protection: ---'
+    } else if (atmosphereHex === '9'){
+        return 'Atmosphere: Dense and Tainted Pressure: 2.0 Protection: Filter'
+    } else if (atmosphereHex === 'A'){
+        return 'Atmosphere: Exotic Pressure: Varies Protection: Air supply'
+    } else if (atmosphereHex === 'B'){
+        return 'Atmosphere: Corrosive Pressure: Varies Protection: Vacc suit'
+    } else if (atmosphereHex === 'C'){
+        return 'Atmosphere: Insidious Pressure: Varies Protection: Vacc suit'
+    } else if (atmosphereHex === 'D'){
+        return 'Atmosphere: Very Dense Pressure: 2.5+ Protection: ---'
+    } else if (atmosphereHex === 'E'){
+        return 'Atmosphere: Low Pressure: <.5 Protection: ---'
+    } else if (atmosphereHex === 'F'){
+        return 'Atmosphere: Unusual Pressure: Varies Protection: Varies'
+    } else {
+        return 'Atmosphere: None Pressure: 0.00 Protection: Vacc suit'
+    }
+        
+
+}
+
 function gravityParsing(uwp){
     const gravityHex = uwp[1]
-    console.log(gravityHex)
     if (gravityHex === '1'){
         return '.05 G'
     } else if (gravityHex === '2'){
@@ -52,4 +90,5 @@ module.exports = {
     starPortParser,
     uwpSanitizer,
     gravityParsing,
+    atmosphereParsing,
 }
