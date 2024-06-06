@@ -11,34 +11,34 @@ test("starPortParser 0", () => {
 test("starPortParser A", () => {
   const input = "A1111111";
   const actual = starPortParser(input);
-  const expected = "Excellent";
+  const expected = "Starport: Excellent";
   expect(actual).toEqual(expected);
 });
 
 test("starPortParser B", () => {
   const input = "B1111111";
   const actual = starPortParser(input);
-  const expected = "Good";
+  const expected = "Starport: Good";
   expect(actual).toEqual(expected);
 });
 
 test("starPortParser C", () => {
   const input = "C1111111";
   const actual = starPortParser(input);
-  const expected = "Routine";
+  const expected = "Starport: Routine";
   expect(actual).toEqual(expected);
 });
 
 test("starPortParser D", () => {
   const input = "D1111111";
   const actual = starPortParser(input);
-  const expected = "Poor";
+  const expected = "Starport: Poor";
   expect(actual).toEqual(expected);
 });
 
 test("starPortParser E", () => {
   const input = "E1111111";
   const actual = starPortParser(input);
-  const expected = "Frontier";
+  const expected = "Starport: Frontier";
   expect(actual).toEqual(expected);
 });

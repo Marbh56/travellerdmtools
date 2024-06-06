@@ -5,8 +5,8 @@ function uwpSanitizer(uwp) {
 
 function diceRoller(numDice) {
   let d = 0;
-  for (let i = 0; i <= numDice; i++) {
-    d += Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+  for (let i = 0; i < numDice; i++) {
+    d += Math.floor(Math.random() * 6) + 1;
   }
   return d;
 }
@@ -30,7 +30,7 @@ function techParsing(uwp) {
 function lawParsing(uwp) {
   const lawHex = uwp[6];
   const lawString = String(hexifier(lawHex));
-  return lawString;
+  return `Law Level: ${lawString}`;
 }
 
 function bannedArmor(uwp) {
@@ -47,7 +47,9 @@ function bannedArmor(uwp) {
     "All armor",
   ];
 
-  const lawLevel = parseInt(lawParsing(uwp), 10);
+  const rawLawResult = lawParsing(uwp);
+  const lawLevelString = rawLawResult.substring(10);
+  const lawLevel = parseInt(lawLevelString, 10);
   let bannedArm = "";
 
   if (lawLevel === 8 || lawLevel === 9) {
@@ -132,34 +134,35 @@ function governmentParsing(uwp) {
 
 function popParsing(uwp) {
   const popHex = hexifier(uwp[4]);
-  const result = Math.pow(10, popHex);
+  const dirtyResult = Math.pow(10, popHex);
+  const result = dirtyResult.toLocaleString();
   return `Pop: ${result}`;
 }
 
 function hydroParsing(uwp) {
   const hydroHex = uwp[3];
   if (hydroHex === "1") {
-    return "6-15%";
+    return "Oceans: 6-15%";
   } else if (hydroHex === "2") {
-    return "16-25%";
+    return "Oceans: 16-25%";
   } else if (hydroHex === "3") {
-    return "26-35%";
+    return "Oceans: 26-35%";
   } else if (hydroHex === "4") {
-    return "36-45%";
+    return "Oceans: 36-45%";
   } else if (hydroHex === "5") {
-    return "46-55%";
+    return "Oceans: 46-55%";
   } else if (hydroHex === "6") {
-    return "56-65%";
+    return "Oceans: 56-65%";
   } else if (hydroHex === "7") {
-    return "66-75%";
+    return "Oceans: 66-75%";
   } else if (hydroHex === "8") {
-    return "76-85%";
+    return "Oceans: 76-85%";
   } else if (hydroHex === "9") {
-    return "86-95%";
+    return "Oceans: 86-95%";
   } else if (hydroHex === "A") {
-    return "95-100%";
+    return "Oceans: 95-100%";
   } else {
-    return "0-5%";
+    return "Oceans: 0-5%";
   }
 }
 
@@ -203,42 +206,42 @@ function atmosphereParsing(uwp) {
 function gravityParsing(uwp) {
   const gravityHex = uwp[1];
   if (gravityHex === "1") {
-    return "0.05 G";
+    return "Gravity: 0.05 G";
   } else if (gravityHex === "2") {
-    return "0.15 G";
+    return "Gravity: 0.15 G";
   } else if (gravityHex === "3") {
-    return "0.25 G";
+    return "Gravity: 0.25 G";
   } else if (gravityHex === "4") {
-    return "0.35 G";
+    return "Gravity: 0.35 G";
   } else if (gravityHex === "5") {
-    return "0.45 G";
+    return "Gravity: 0.45 G";
   } else if (gravityHex === "6") {
-    return "0.70 G";
+    return "Gravity: 0.70 G";
   } else if (gravityHex === "7") {
-    return "0.90 G";
+    return "Gravity: 0.90 G";
   } else if (gravityHex === "8") {
-    return "1.00 G";
+    return "Gravity: 1.00 G";
   } else if (gravityHex === "9") {
-    return "1.25 G";
+    return "Gravity: 1.25 G";
   } else if (gravityHex === "A") {
-    return "1.40 G";
+    return "Gravity: 1.40 G";
   } else {
-    return "0.00 G";
+    return "Gravity: 0.00 G";
   }
 }
 
 function starPortParser(uwp) {
   const starPortHex = uwp[0];
   if (starPortHex === "A") {
-    return "Excellent";
+    return "Starport: Excellent";
   } else if (starPortHex === "B") {
-    return "Good";
+    return "Starport: Good";
   } else if (starPortHex === "C") {
-    return "Routine";
+    return "Starport: Routine";
   } else if (starPortHex === "D") {
-    return "Poor";
+    return "Starport: Poor";
   } else if (starPortHex === "E") {
-    return "Frontier";
+    return "Starport: Frontier";
   } else {
     return "No Starport";
   }
