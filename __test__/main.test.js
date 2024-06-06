@@ -1,7 +1,7 @@
 const { main } = require("../SRC/main.js");
 const { test, expect } = require("@jest/globals");
 
-test("main B8888888", () => {
+test("main B8686A7C", () => {
   const input = "B8686A7C";
   const actual = main(input);
   const expected = [
