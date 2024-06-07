@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Example</title>
+  </head>
+  <body>
+    <form id="passageFreightDataForm">
+      <!-- Input for Steward Skill -->
+      <label for="diceRoll">Dice Roll:</label>
+      <input
+        type="text"
+        id="diceRoll"
+        name="diceRoll"
+        placeholder="Enter dice roll"
+      />
+      <br /><br />
+
+
+        <!-- Input for Steward Skill -->
+        <label for="stewardSkill">Steward Skill:</label>
+        <input
+          type="text"
+          id="stewardSkill"
+          name="stewardSkill"
+          placeholder="Enter steward skill"
+        />
+        <br /><br />
+
+        <!-- Input for UWP -->
+        <label for="uwp">UWP:</label>
+        <input type="text" id="uwp" name="uwp" placeholder="Enter UWP" />
+        <br /><br />
+
+        <!-- Radio buttons for amber zone -->
+        <label>Travel Advisory:</label>
+        <input type="radio" id="travelAmber" name="advisory" value="Amber" />
+        <label for="amberYes">Amber</label>
+        <input type="radio" id="travelRed" name="advisory" value="Red" />
+        <label for="redYes">Red</label>
+        <input type="radio" id="travelNeither" name="advisory" value="Neither" />
+        <label for="redYes">Neither</label>
+        <br /><br />
+
+        <input type="submit" value="submit" id="passageFreightSubmit" />
+      </form>
+    </form>
+  </body>
+</html>
